@@ -1,27 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <main :class="overlay_styles">
+    <Header_desktop />
+    <Header_mobile @handleStylesEmit="handleStyles" />
+    <Main />
+  </main>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, ref } from "vue";
+import Header_desktop from "@/components/Header_Desktop/Header_desktop.vue";
+import Header_mobile from "@/components/Header_mobile/Header_mobile.vue";
+import Main from "@/components/Main/Main.vue";
 
-@Options({
+import "./index.css";
+
+export default defineComponent({
+  name: "App",
   components: {
-    HelloWorld,
+    Header_desktop,
+    Header_mobile,
+    Main,
   },
-})
-export default class App extends Vue {}
+  setup() {
+    const overlay_styles = ref("");
+    const handleStyles = () => {
+      overlay_styles.value =
+        overlay_styles.value === "" ? "custom_mobile_styles" : "";
+    };
+    return {
+      overlay_styles,
+      handleStyles,
+    };
+  },
+});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

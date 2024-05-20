@@ -1,0 +1,112 @@
+@media(min-width :0px) {
+    .header_mobile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 40px;
+        margin: 0px auto;
+        position: relative;
+
+        .right {
+            cursor: pointer;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #0000005d;
+        z-index: 100;
+    }
+
+    .header_mobile_content {
+        position: absolute;
+        z-index: 200;
+        background-color: #fff;
+        padding: 20px;
+        top: 0px;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .close {
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            cursor: pointer;
+
+            img {
+                width: auto;
+                height: auto;
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            li {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                cursor: pointer;
+                gap: 10px;
+                transition: all 0.5s ease;
+                color: #a8a8a8;
+
+                &:hover {
+                    color: #282828
+                }
+
+                img {
+                    width: auto;
+                    height: auto;
+                }
+            }
+
+            .listBox {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding-left: 30px;
+            }
+        }
+
+        .mobile_btns {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+
+            button {
+                color: #282828;
+                border: 1px solid transparent;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: 15px;
+
+                &:nth-child(2) {
+                    border-color: #282828;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width :800px) {
+
+    .header_mobile,
+    .overlay,
+    .header_mobile_content {
+        display: none;
+    }
+}
